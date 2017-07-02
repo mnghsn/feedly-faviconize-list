@@ -8,8 +8,8 @@ A user script to show feed favicons in Feedly Title-Only View.
 
 ## Installation
 
-Install the user script from [Greasy Fork](https://greasyfork.org/):
-https://greasyfork.org/ja/scripts/31076-feedly-faviconize-list
+Install the user script from Greasy Fork:
+<https://greasyfork.org/en/scripts/31076-feedly-faviconize-list>
 
 ## License
 
