@@ -15,6 +15,9 @@ Install the user script from Greasy Fork:
 
 # Changelog
 
+* v0.1.1 (2017-07-03)
+  * Optimize performance.
+
 * v0.1.0 (2017-07-02)
   * First release.
 
