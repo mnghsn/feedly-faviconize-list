@@ -17,22 +17,24 @@
 
 /* global GM_addStyle */
 
-GM_addStyle('.GM_faviconize .favicon { margin-right: 0.5em; vertical-align: middle; }')
+GM_addStyle('.GM_favicon { margin-right: 0.5em; vertical-align: middle; }')
 
 const observer = new window.MutationObserver(mutations => {
   mutations.forEach(mutation => {
     const target = mutation.target
-    if (target.classList.contains('entry') && !target.classList.contains('GM_faviconize')) {
-      const source = target.querySelector('a.source')
-      if (source) {
-        const domain = source.href.replace(/^https?:\/\/(?:www.)?([^/:]+).*/i, '$1')
-        const favicon = document.createElement('img')
-        favicon.src = `https://www.google.com/s2/favicons?domain=${domain}&alt=feed`
-        favicon.classList.add('favicon')
-        source.insertBefore(favicon, source.firstChild)
+    if (target.classList.contains('entry')) {
+      if (!target.classList.contains('GM_faviconize')) {
+        const source = target.querySelector('a.source')
+        if (source) {
+          const domain = source.href.replace(/^https?:\/\/(?:www.)?([^/:]+).*/i, '$1')
+          const favicon = document.createElement('img')
+          favicon.src = `https://www.google.com/s2/favicons?domain=${domain}&alt=feed`
+          favicon.classList.add('GM_favicon')
+          source.insertBefore(favicon, source.firstChild)
+        }
       }
+      target.classList.add('GM_faviconize')
     }
-    target.classList.add('GM_faviconize')
   })
 })
 observer.observe(document.getElementById('box'), { childList: true, subtree: true })
