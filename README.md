@@ -6,7 +6,7 @@ A user script to show feed favicons in Feedly Title-Only View.
 
 ## Screenshot
 
-![Screenshot](screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/jmlntw/feedly-faviconize-list/master/screenshot.png)
 
 ## Installation
 
