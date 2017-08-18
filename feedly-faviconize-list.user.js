@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name            Feedly Faviconize List
 // @namespace       jmln.tw
-// @version         0.1.1
+// @version         0.1.2
 // @description     A user script to show feed favicons in Feedly Title-Only View.
 // @author          Jimmy Lin
 // @license         MIT
