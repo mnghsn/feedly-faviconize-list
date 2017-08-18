@@ -7,7 +7,7 @@
 // @license         MIT
 // @homepage        https://github.com/jmlntw/feedly-faviconize-list
 // @supportURL      https://github.com/jmlntw/feedly-faviconize-list/issues
-// @match           *://*.feedly.com/*
+// @match           https://*.feedly.com/*
 // @compatible      firefox
 // @compatible      chrome
 // @compatible      opera
