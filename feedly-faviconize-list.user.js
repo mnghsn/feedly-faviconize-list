@@ -23,9 +23,9 @@ const observer = new window.MutationObserver(mutations => {
   mutations.forEach(mutation => {
     const target = mutation.target
     if (target.classList.contains('entry')) {
-      if (!target.classList.contains('GM_faviconize')) {
+      if (target.querySelector('.GM_favicon') === null) {
         const source = target.querySelector('a.source')
-        if (source) {
+        if (source !== null) {
           const domain = source.href.replace(/^https?:\/\/(?:www.)?([^/:]+).*/i, '$1')
           const favicon = document.createElement('img')
           favicon.src = `https://www.google.com/s2/favicons?domain=${domain}&alt=feed`
@@ -33,7 +33,6 @@ const observer = new window.MutationObserver(mutations => {
           source.insertAdjacentElement('afterbegin', favicon)
         }
       }
-      target.classList.add('GM_faviconize')
     }
   })
 })
