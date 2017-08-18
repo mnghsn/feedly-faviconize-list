@@ -30,7 +30,7 @@ const observer = new window.MutationObserver(mutations => {
           const favicon = document.createElement('img')
           favicon.src = `https://www.google.com/s2/favicons?domain=${domain}&alt=feed`
           favicon.classList.add('GM_favicon')
-          source.insertBefore(favicon, source.firstChild)
+          source.insertAdjacentElement('afterbegin', favicon)
         }
       }
       target.classList.add('GM_faviconize')
