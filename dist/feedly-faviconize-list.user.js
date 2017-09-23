@@ -15,8 +15,6 @@
 // @grant           GM_addStyle
 // ==/UserScript==
 
-/* global GM_addStyle */
-
 GM_addStyle('.GM_favicon { margin-right: 0.5em; vertical-align: middle; }')
 
 const observer = new window.MutationObserver(mutations => {

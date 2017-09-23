@@ -17,12 +17,22 @@
   },
   "main": "feedly-faviconize-list.user.js",
   "scripts": {
-    "test": "standard feedly-faviconize-list.user.js",
-    "version": "npm run test && sync-version feedly-faviconize-list.user.js"
+    "build:metajs": "inlinejs -o dist/feedly-faviconize-list.meta.js src/meta.js",
+    "build:userjs": "inlinejs -o dist/feedly-faviconize-list.user.js src/user.js",
+    "build": "npm run build:metajs & npm run build:userjs",
+    "test:lint": "standard src/**/*.js",
+    "test:build": "npm run build:metajs -- -n & npm run build:userjs -- -n",
+    "test": "npm run test:lint && npm run test:build"
   },
   "devDependencies": {
-    "standard": "^10.0.2",
-    "sync-version": "^1.0.1"
+    "inline-js": "^0.4.0",
+    "standard": "^10.0.3"
   },
-  "private": true
+  "private": true,
+  "standard": {
+    "globals": [
+      "$inline",
+      "GM_addStyle"
+    ]
+  }
 }
