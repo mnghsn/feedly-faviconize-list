@@ -12,5 +12,5 @@
 // @compatible      chrome
 // @compatible      opera
 // @run-at          document-end
-// @grant           GM_addStyle
+// @grant           none
 // ==/UserScript==

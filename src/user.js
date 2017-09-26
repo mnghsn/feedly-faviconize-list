@@ -1,14 +1,10 @@
 $inline('meta.js|trim')
 
 const css = '.GM_favicon { margin-right: 0.5em; vertical-align: middle; }'
-if (typeof GM_addStyle === 'function') {
-  GM_addStyle(css)
-} else {
-  const style = document.createElement('style')
-  style.type = 'text/css'
-  style.textContent = css
-  document.head.appendChild(style)
-}
+const style = document.createElement('style')
+style.type = 'text/css'
+style.textContent = css
+document.head.appendChild(style)
 
 const observer = new window.MutationObserver(mutations => {
   mutations.forEach(mutation => {
