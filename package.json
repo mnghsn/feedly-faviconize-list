@@ -25,7 +25,7 @@
     "test": "npm run test:lint && npm run test:build"
   },
   "devDependencies": {
-    "inline-js": "^0.4.0",
+    "inline-js": "^0.5.0",
     "standard": "^10.0.3"
   },
   "private": true,
