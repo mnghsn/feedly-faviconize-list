@@ -1,10 +1,16 @@
 $inline('meta.js|trim')
 
-const css = '.GM_favicon { margin-right: 0.5em; vertical-align: middle; }'
-const style = document.createElement('style')
-style.type = 'text/css'
-style.textContent = css
-document.head.appendChild(style)
+/* eslint-disable camelcase */
+function GM_addStyle (css) {
+  const style = document.createElement('style')
+  style.type = 'text/css'
+  style.textContent = css
+  document.head.appendChild(style)
+  return style
+}
+/* eslint-enable camelcase */
+
+GM_addStyle('.GM_favicon { margin-right: 0.5em; vertical-align: middle; }')
 
 const observer = new window.MutationObserver(mutations => {
   mutations.forEach(mutation => {
