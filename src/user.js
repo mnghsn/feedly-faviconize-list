@@ -1,6 +1,6 @@
 $inline('meta.js|trim')
 
-/* eslint-disable camelcase */
+// eslint-disable-next-line camelcase
 function GM_addStyle (css) {
   const style = document.createElement('style')
   style.type = 'text/css'
@@ -8,7 +8,6 @@ function GM_addStyle (css) {
   document.head.appendChild(style)
   return style
 }
-/* eslint-enable camelcase */
 
 GM_addStyle('.GM_favicon { margin-right: 0.5em; vertical-align: middle; }')
 
