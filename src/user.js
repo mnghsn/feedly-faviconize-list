@@ -1,5 +1,14 @@
 $inline('meta.js|trim')
 
+// eslint-disable-next-line camelcase
+function GM_addStyle (css) {
+  const style = document.createElement('style')
+  style.type = 'text/css'
+  style.textContent = css
+  document.head.appendChild(style)
+  return style
+}
+
 GM_addStyle('.GM_favicon { margin-right: 0.5em; vertical-align: middle; }')
 
 const observer = new window.MutationObserver(mutations => {
