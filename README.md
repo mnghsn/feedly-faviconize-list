@@ -14,10 +14,14 @@ Install the user script from **Greasy Fork**: <https://greasyfork.org/en/scripts
 
 ## Changelog
 
+* **v0.2.0** (2017-09-30)
+  * Compatible with Greasemonkey 4 and Violentmonkey.
+  * Code refactoring.
+  * Update readme and screenshot.
 * **v0.1.2** (2017-08-18)
   * Improve performance.
 * **v0.1.1** (2017-07-03)
-  * Optimize performance.
+  * Improve performance.
 * **v0.1.0** (2017-07-02)
   * First release.
 
