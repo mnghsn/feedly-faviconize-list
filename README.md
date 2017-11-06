@@ -10,7 +10,8 @@ A user script to show feed favicons in Feedly Title-Only View.
 
 ## Installation
 
-Install the user script from **Greasy Fork**: <https://greasyfork.org/en/scripts/31076-feedly-faviconize-list>
+* From **Greasy Fork**: <https://greasyfork.org/en/scripts/31076-feedly-faviconize-list>
+* From **GitHub**: <https://raw.githubusercontent.com/jmlntw/feedly-faviconize-list/master/dist/feedly-faviconize-list.user.js>
 
 ## Changelog
 
