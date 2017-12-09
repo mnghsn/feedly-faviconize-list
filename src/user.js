@@ -1,6 +1,5 @@
 $inline('meta.js|trim')
 
-// eslint-disable-next-line camelcase
 function GM_addStyle (css) {
   const style = document.createElement('style')
   style.type = 'text/css'
@@ -11,7 +10,7 @@ function GM_addStyle (css) {
 
 GM_addStyle('.gm-favicon { margin-right: 0.5em; vertical-align: middle; }')
 
-const observer = new window.MutationObserver(mutations => {
+const observer = new MutationObserver(mutations => {
   mutations.forEach(mutation => {
     const target = mutation.target
     if (target.classList.contains('entry') && target.querySelector('.gm-favicon') === null) {
