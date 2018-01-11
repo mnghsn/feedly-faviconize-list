@@ -1,4 +1,4 @@
-$inline('meta.js|trim')
+/* $inline.line('meta.js|trim') */
 
 function GM_addStyle (css) {
   const style = document.createElement('style')

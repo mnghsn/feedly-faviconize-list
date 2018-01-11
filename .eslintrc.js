@@ -4,8 +4,5 @@ module.exports = {
     browser: true,
     es6: true,
     greasemonkey: true
-  },
-  globals: {
-    '$inline': true
   }
 }
