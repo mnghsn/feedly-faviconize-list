@@ -28,11 +28,5 @@
     "eslint": "^4.15.0",
     "inline-js": "^0.6.0"
   },
-  "private": true,
-  "standard": {
-    "globals": [
-      "$inline",
-      "GM_addStyle"
-    ]
-  }
+  "private": true
 }
