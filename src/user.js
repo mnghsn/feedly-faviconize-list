@@ -16,7 +16,7 @@ const observer = new MutationObserver(mutations => {
     if (target.classList.contains('entry') && target.querySelector('.gm-favicon') === null) {
       const source = target.querySelector('a.source')
       if (source !== null) {
-        const domain = source.href.replace(/^https?:\/\/(?:www.)?([^/:]+).*/i, '$1')
+        const domain = source.href.replace(/^https?:\/\/([^/:]+).*/i, '$1')
         const favicon = document.createElement('img')
         favicon.src = `https://www.google.com/s2/favicons?domain=${domain}&alt=feed`
         favicon.classList.add('gm-favicon')
