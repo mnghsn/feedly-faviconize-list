@@ -15,7 +15,6 @@
   "bugs": {
     "url": "https://github.com/jmlntw/feedly-faviconize-list/issues"
   },
-  "main": "feedly-faviconize-list.user.js",
   "scripts": {
     "build:metajs": "inlinejs -o dist/feedly-faviconize-list.meta.js src/meta.js",
     "build:userjs": "inlinejs -o dist/feedly-faviconize-list.user.js src/user.js",
