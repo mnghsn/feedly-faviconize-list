@@ -24,8 +24,8 @@
     "test": "npm run test:lint && npm run test:build"
   },
   "devDependencies": {
-    "eslint": "^4.19.0",
-    "inline-js": "^0.7.0"
+    "eslint": "^5.5.0",
+    "inline-js": "^0.8.0"
   },
   "private": true
 }
