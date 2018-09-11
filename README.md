@@ -15,6 +15,10 @@ A user script to show feed favicons in Feedly Title-Only View.
 
 ## Changelog
 
+* **v0.2.1** (2018-09-11)
+  * Update screenshot image.
+  * Update readme.
+  * Change favicon class name to lower case.
 * **v0.2.0** (2017-09-30)
   * Compatible with Greasemonkey 4 and Violentmonkey.
   * Code refactoring.
