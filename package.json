@@ -21,7 +21,9 @@
     "build": "npm run build:metajs & npm run build:userjs",
     "test:lint": "eslint src/**/*.js",
     "test:build": "npm run build:metajs -- -n & npm run build:userjs -- -n",
-    "test": "npm run test:lint && npm run test:build"
+    "test": "npm run test:lint && npm run test:build",
+    "preversion": "npm run test",
+    "version": "npm run build && git add -A dist"
   },
   "devDependencies": {
     "eslint": "^5.8.0",
