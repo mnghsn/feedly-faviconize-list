@@ -10,6 +10,11 @@ function GM_addStyle (css) {
 
 GM_addStyle('.gm-favicon { margin-right: 0.5em; vertical-align: middle; }')
 
+// Add forEach method to NodeList for legacy browsers.
+if (window.NodeList && !NodeList.prototype.forEach) {
+  NodeList.prototype.forEach = Array.prototype.forEach
+}
+
 const observer = new MutationObserver(mutations => {
   mutations.forEach(mutation => {
     const target = mutation.target
