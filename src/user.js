@@ -29,19 +29,23 @@ function getFeedlyPage () {
   })
 }
 
-const observer = new MutationObserver(mutations => {
-  mutations.forEach(mutation => {
-    const target = mutation.target
-    if (target.classList.contains('entry') && target.querySelector('.gm-favicon') === null) {
-      const source = target.querySelector('a.source')
-      if (source !== null) {
+getFeedlyPage().then(page => {
+  const observer = new MutationObserver(mutations => {
+    const sources = new Set()
+    mutations.map(mutation => mutation.target).forEach(target => {
+      target.querySelectorAll('a.source[data-uri]').forEach(source => {
+        sources.add(source)
+      })
+    })
+    sources.forEach(source => {
+      if (source.querySelector('img.gm-favicon') === null) {
         const domain = source.href.replace(/^https?:\/\/([^/:]+).*/i, '$1')
         const favicon = document.createElement('img')
         favicon.src = `https://www.google.com/s2/favicons?domain=${domain}&alt=feed`
         favicon.classList.add('gm-favicon')
         source.insertAdjacentElement('afterbegin', favicon)
       }
-    }
+    })
   })
+  observer.observe(page, { childList: true, subtree: true })
 })
-observer.observe(document.getElementById('box'), { childList: true, subtree: true })
