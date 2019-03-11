@@ -15,6 +15,20 @@ if (window.NodeList && !NodeList.prototype.forEach) {
   NodeList.prototype.forEach = Array.prototype.forEach
 }
 
+function getFeedlyPage () {
+  return new Promise(resolve => {
+    const observer = new MutationObserver(mutations => {
+      mutations.map(mutation => mutation.target).forEach(target => {
+        if (target.id === 'feedlyPageFX') {
+          resolve(target)
+          observer.disconnect()
+        }
+      })
+    })
+    observer.observe(document.getElementById('box'), { childList: true, subtree: true })
+  })
+}
+
 const observer = new MutationObserver(mutations => {
   mutations.forEach(mutation => {
     const target = mutation.target
