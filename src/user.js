@@ -19,42 +19,81 @@ GM_addStyle(`
   }
 `)
 
-// Add forEach method to NodeList for legacy browsers.
-if (window.NodeList && !NodeList.prototype.forEach) {
-  NodeList.prototype.forEach = Array.prototype.forEach
-}
+function awaitSelector (selector, root) {
+  return new Promise((resolve, reject) => {
+    try {
+      const rootElement = root ?
+        typeof root === 'string' ? document.querySelector(root) : root :
+        document
 
-function getFeedlyPage () {
-  return new Promise(resolve => {
-    const observer = new MutationObserver(mutations => {
-      mutations.map(mutation => mutation.target).forEach(target => {
-        if (target.id === 'feedlyPageFX') {
-          resolve(target)
-          observer.disconnect()
+      const findAndResolveElements = () => {
+        const allElements = document.querySelectorAll(selector)
+        const newElements = []
+        const resolvedAttr = 'data-awaitselector-resolved'
+
+        if (allElements.length > 0) {
+          Array.prototype.slice.call(allElements)
+            .filter(element => typeof element[resolvedAttr] === 'undefined')
+            .forEach(element => {
+              element[resolvedAttr] = true
+              newElements.push(element)
+            })
+
+          if (newElements.length > 0) {
+            observer.disconnect()
+            resolve(newElements)
+          }
+        }
+      }
+
+      const observer = new MutationObserver(mutations => {
+        const addedNodes = mutations.reduce((found, mutation) => {
+          return found || mutation.addedNodes && mutation.addedNodes.length > 0
+        })
+
+        if (addedNodes) {
+          findAndResolveElements()
         }
       })
-    })
-    observer.observe(document.getElementById('box'), { childList: true, subtree: true })
+
+      observer.observe(rootElement, {
+        childList: true,
+        subtree: true
+      })
+
+      findAndResolveElements()
+    } catch (exception) {
+      reject(exception)
+    }
   })
 }
 
-getFeedlyPage().then(page => {
-  const observer = new MutationObserver(mutations => {
-    const sources = new Set()
-    mutations.map(mutation => mutation.target).forEach(target => {
-      target.querySelectorAll('a.source[data-uri]').forEach(source => {
-        sources.add(source)
+function waitAwaitSelector (selector, root, callback) {
+  (function awaiter () {
+    const continueWatching = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : true
+
+    if (continueWatching) {
+      awaitSelector(selector, root).then(callback).then(awaiter)
+    }
+  }())
+}
+
+function createFavicon (url) {
+  const domain = url.replace(/^https?:\/\/([^/:]+).*/i, '$1')
+  const favicon = document.createElement('img')
+
+  favicon.src = `https://www.google.com/s2/favicons?domain=${domain}&alt=feed`
+  favicon.classList.add('gm-favicon')
+
+  return favicon
+}
+
+awaitSelector('#feedlyPageFX', '#box').then(pages => {
+  waitAwaitSelector('a.source[data-uri]', pages[0], sources => {
+    sources
+      .filter(source => source.querySelector('.gm-favicon') === null)
+      .forEach(source => {
+        source.insertAdjacentElement('afterbegin', createFavicon(source.href))
       })
-    })
-    sources.forEach(source => {
-      if (source.querySelector('img.gm-favicon') === null) {
-        const domain = source.href.replace(/^https?:\/\/([^/:]+).*/i, '$1')
-        const favicon = document.createElement('img')
-        favicon.src = `https://www.google.com/s2/favicons?domain=${domain}&alt=feed`
-        favicon.classList.add('gm-favicon')
-        source.insertAdjacentElement('afterbegin', favicon)
-      }
-    })
   })
-  observer.observe(page, { childList: true, subtree: true })
 })
