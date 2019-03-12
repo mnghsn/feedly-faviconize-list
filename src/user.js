@@ -8,7 +8,7 @@ function GM_addStyle (css) {
   return style
 }
 
-GM_addStyle('.gm-favicon { margin-right: 0.5em; vertical-align: middle; }')
+GM_addStyle('.gm-favicon { width: 16px; height: 16px; margin-right: 0.5em; vertical-align: middle; }')
 
 // Add forEach method to NodeList for legacy browsers.
 if (window.NodeList && !NodeList.prototype.forEach) {
