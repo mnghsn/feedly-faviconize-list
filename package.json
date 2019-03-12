@@ -1,6 +1,6 @@
 {
   "name": "feedly-faviconize-list",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A user script to show feed favicons in Feedly Title-Only View.",
   "author": {
     "name": "Jimmy Lin",
