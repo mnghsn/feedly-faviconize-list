@@ -1,6 +1,6 @@
 /* $inline.line('meta.js|trim') */
 
-function GM_addStyle (css) {
+function addStyle (css) {
   const style = document.createElement('style')
   style.type = 'text/css'
   style.textContent = css
@@ -8,7 +8,7 @@ function GM_addStyle (css) {
   return style
 }
 
-GM_addStyle(`
+addStyle(`
   .gm-favicon {
     width: 16px;
     height: 16px;
