@@ -1,19 +1,20 @@
 {
   "name": "feedly-faviconize-list",
   "version": "0.2.3",
+  "private": true,
   "description": "A user script to show feed favicons in Feedly Title-Only View.",
-  "author": {
-    "name": "Jimmy Lin",
-    "email": "jmlntw@gmail.com"
-  },
-  "license": "MIT",
   "homepage": "https://github.com/jmlntw/feedly-faviconize-list",
+  "bugs": {
+    "url": "https://github.com/jmlntw/feedly-faviconize-list/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/jmlntw/feedly-faviconize-list.git"
   },
-  "bugs": {
-    "url": "https://github.com/jmlntw/feedly-faviconize-list/issues"
+  "license": "MIT",
+  "author": {
+    "name": "Jimmy Lin",
+    "email": "jmlntw@gmail.com"
   },
   "scripts": {
     "build:metajs": "inlinejs -o dist/feedly-faviconize-list.meta.js src/meta.js",
@@ -28,6 +29,5 @@
   "devDependencies": {
     "eslint": "^6.5.0",
     "inline-js": "^0.8.0"
-  },
-  "private": true
+  }
 }
