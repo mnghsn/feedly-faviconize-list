@@ -27,7 +27,7 @@
     "version": "npm run build && git add -A dist"
   },
   "devDependencies": {
-    "eslint": "^7.2.0",
+    "eslint": "^7.9.0",
     "inline-js": "^0.8.0"
   }
 }
