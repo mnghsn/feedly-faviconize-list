@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name            Feedly Faviconize List
 // @namespace       jmln.tw
-// @version         0.2.3
+// @version         0.2.4
 // @description     A user script to show feed favicons in Feedly Title-Only View.
 // @author          Jimmy Lin
 // @license         MIT
@@ -15,15 +15,14 @@
 // @grant           none
 // ==/UserScript==
 
-function GM_addStyle (css) {
+function addStyle (css) {
   const style = document.createElement('style')
-  style.type = 'text/css'
   style.textContent = css
   document.head.appendChild(style)
   return style
 }
 
-GM_addStyle(`
+addStyle(`
   .gm-favicon {
     width: 16px;
     height: 16px;
