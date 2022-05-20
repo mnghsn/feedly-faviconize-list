@@ -88,7 +88,7 @@ function createFavicon (url) {
 }
 
 awaitSelector('#feedlyPageFX', '#box').then(pages => {
-  waitAwaitSelector('a.source[data-uri]', pages[0], sources => {
+  waitAwaitSelector('a.entry__source--u0[href]', pages[0], sources => {
     sources
       .filter(source => source.querySelector('.gm-favicon') === null)
       .forEach(source => {
