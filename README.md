@@ -13,6 +13,9 @@ A user script to show feed favicons in Feedly Title-Only View.
 
 ## Changelog
 
+* **v0.2.5** (2022-05-20)
+  * Fix favicon display issue due to Feedly updates.
+  * Update screenshot.
 * **v0.2.4** (2020-10-02)
   * Minor code fixes.
 * **v0.2.3** (2019-03-12)
