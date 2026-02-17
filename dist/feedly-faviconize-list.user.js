@@ -93,7 +93,16 @@ function waitAwaitSelector (selector, root, callback) {
 }
 
 function createFavicon (url) {
-  const domain = url.replace(/^https?:\/\/([^/:]+).*/i, '$1')
+  // Decode Feedly subscription URL: i/subscription/feed/https%3A//www.example.com/rss/
+  const match = url.match(/\/feed\%2F(https?%3A%2F%2F[^&]+)/);
+  let domain;
+  if (match) {
+    const decodedFeedUrl = decodeURIComponent(match[1]);
+    domain = decodedFeedUrl.replace(/^https?:\/\/([^/:]+).*/i, '$1');
+  } else {
+    // Fallback
+    domain = url.replace(/^https?:\/\/([^/:]+).*/i, '$1');
+  }
   const favicon = document.createElement('img')
 
   favicon.src = `https://www.google.com/s2/favicons?domain=${domain}&alt=feed`
@@ -102,7 +111,7 @@ function createFavicon (url) {
   return favicon
 }
 
-awaitSelector('#feedlyPageFX', '#root').then(pages => {
+awaitSelector('#feedlyPageHolderFX', '#root').then(pages => {
   waitAwaitSelector('a.EntryMetadataSource[href]', pages[0], sources => {
     sources
       .filter(source => source.querySelector('.gm-favicon') === null)
